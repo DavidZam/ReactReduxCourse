@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
-import HeaderComponent from './header.component';
+import Header from './header.component';
+import Productos from './productos.component';
+import Footer from './footer.component';
 
-class PrimerComponente extends Component {
+class Aplicacion extends Component {
     render() {
         return (
             <div>
-                <HeaderComponent />
-                <p>Hola desde mi primer componente</p>
+                <Header />
+                <Productos />
+                <Footer />
             </div>
         )
     }
 }
 
-export default PrimerComponente;
+export default Aplicacion;

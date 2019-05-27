@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const HeaderComponent = () => {
+const Header = () => {
     return (
-        <h1>Nombre del sitio</h1>
+        <header>
+            <h1>Tienda Virtual</h1>
+        </header>
     )
 }
 
-export default HeaderComponent;
+export default Header;
