@@ -9,6 +9,21 @@ class App extends Component {
     citas: []
   }
 
+  // Cuando el componente se ha montado (se carga la pagina)
+  componentDidMount() {
+    const citasLocalStorage = localStorage.getItem('citas');
+    if(citasLocalStorage) {
+      this.setState({
+        citas: JSON.parse(citasLocalStorage)
+      })
+    }
+  }
+
+  // Cuando el componente se modifica (eliminar/agregar cita)
+  componentDidUpdate() {
+    localStorage.setItem('citas', JSON.stringify(this.state.citas));
+  }
+
   crearNuevaCita = datos => {
     // copiar el state actual:
     const citas = [...this.state.citas, datos];
@@ -21,7 +36,17 @@ class App extends Component {
 
   // metodo para eliminar las citas del state
   eliminarCita = id => {
-    console.log(id);
+    // crear una copia del state
+    const citasActuales = [...this.state.citas];
+
+    // utilizar filter para extraer el id del array
+    const citas = citasActuales.filter(cita => cita.id !== id)
+
+    // actualizar el state
+    this.setState({
+      citas
+    })
+
   }
 
   render() {
