@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Noticia = ({noticia}) => {
 
     // extraer los datos de cada noticia
-    const { urlToImage, url, title, description, source, author, publishedAt } = noticia
+    const { urlToImage, url, title, description, source } = noticia
 
     return ( 
         <div className="col s12 m6 l4">
@@ -37,6 +38,10 @@ const Noticia = ({noticia}) => {
             </div> 
         </div>
      );
+}
+
+Noticia.propTypes = {
+    noticia: PropTypes.object.isRequired
 }
  
 export default Noticia;
